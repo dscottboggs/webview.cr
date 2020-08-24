@@ -1,0 +1,16 @@
+name: webview.cr
+version: 0.1.0
+
+authors:
+  - D. Scott Boggs <your-email-here>
+
+development_dependencies:
+  clang:
+    github: crystal-lang/clang.cr
+
+scripts:
+  postinstall: make ext/webview.o
+
+crystal: 0.35.1
+
+license: LGPL

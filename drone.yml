@@ -1,0 +1,28 @@
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: formatting check
+    image: crystallang/crystal:latest-alpine
+    commands:
+      - crystal tool format --check
+  - name: build
+    image: crystallang/crystal:latest-alpine
+    volumes:
+      - name: cache
+        path: /root/.cache
+    commands:
+      - apk add curl
+      - shards install
+      - make
+  - name: lint
+    image: crystallang/crystal:latest-alpine
+    commands: [bin/ameba]
+
+volumes:
+  - name: cache
+    temp: {}

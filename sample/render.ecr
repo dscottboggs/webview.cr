@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title><%= PAGE_TITLE %></title>
+    <script>
+      console.log("inline script")
+      function doSomethingInCrystal() {
+        <%= call :func %>("test", 12234)
+      }
+      setTimeout(doSomethingInCrystal, 1000)
+    </script>
+  </head>
+  <body>
+    <h1>Test</h1>
+    <ul>
+      <%- data.each do |item| %>
+      <li><%= item %></li>
+      <% end -%>
+    </ul>
+  </body>
+</html>
