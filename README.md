@@ -1,5 +1,7 @@
 # webview.cr
 
+[![Build Status](https://cloud.drone.io/api/badges/dscottboggs/webview.cr/status.svg)](https://cloud.drone.io/dscottboggs/webview.cr)
+
 A library for creating desktop applications using Crystal and web technologies.
 It uses a lightweight web view for rendering HTML and CSS, and features a
 utility for ergonomic calls to Crystal from Javascript and vice-versa.
@@ -8,11 +10,11 @@ utility for ergonomic calls to Crystal from Javascript and vice-versa.
 
 1. Add the dependency to your `shard.yml`:
 
-   ```yaml
-   dependencies:
-     webview:
-       github: dscottboggs/webview
-   ```
+```yaml
+dependencies:
+  webview:
+  github: dscottboggs/webview
+```
 
 2. Run `shards install`
 

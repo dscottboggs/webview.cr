@@ -11,13 +11,13 @@ SAMPLES := sample/render sample/simple
 all: $(DEPENDENCY_OUTPUT) $(SAMPLES)
 
 sample/simple: $(DEPENDENCY_OUTPUT)
-	crystal build -o sample/simple --error-trace sample/simple.cr
+	crystal build -o sample/simple $(CRYSTAL_FLAGS) sample/simple.cr
 
 sample/render: $(DEPENDENCY_OUTPUT)
-	crystal build -o sample/render --error-trace sample/render.cr
+	crystal build -o sample/render $(CRYSTAL_FLAGS) sample/render.cr
 
 $(DEPENDENCY_OUTPUT):
-	c++ $(DEPENDENCY) $(FLAGS) -o $(DEPENDENCY_OUTPUT)
+	c++ $(DEPENDENCY) $(C_FLAGS) -o $(DEPENDENCY_OUTPUT)
 
 clean:
 	rm -r $(DEPENDENCY_OUTPUT)
