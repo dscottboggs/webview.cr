@@ -8,13 +8,16 @@ utility for ergonomic calls to Crystal from Javascript and vice-versa.
 
 ## Installation
 
-1. (Linux only) Install `webkit2gtk` from your package manager:
+1. (Linux/BSD only) Install `webkit2gtk` from your package manager:
    |OS|Package name|Notes|
    |--|------------|-----|
    |Arch/Manjaro|webkit2gtk||
-   |OpenBSD/FreeBSD|webkit2-gtk3|requires wxallowed mount(8) option|
    |Ubuntu|webkit2gtk-4.0-dev||
    |OpenSUSE|webkit2gtk3-devel||
+   |Fedora|webkit2gtk3-devel||
+   |Alpine|webkit2gtk-dev||
+   |Debian|libwebkit2gtk-4.0-dev||
+   |OpenBSD/FreeBSD|webkit2-gtk3|requires wxallowed mount(8) option|
 
 2. Add the dependency to your `shard.yml`:
 

@@ -10,18 +10,20 @@ steps:
     image: crystallang/crystal:latest-alpine
     commands:
       - crystal tool format --check
-  - name: build
+  - name: lint
     image: crystallang/crystal:latest-alpine
+    commands:
+      - shards install
+      - bin/ameba
+  - name: build
+    image: crystallang/crystal:latest
     volumes:
       - name: cache
         path: /root/.cache
     commands:
-      - apk add curl
+      - apt-get update && apt-get install -y curl g++ webkit2gtk-4.0-dev make
       - shards install
       - make
-  - name: lint
-    image: crystallang/crystal:latest-alpine
-    commands: [bin/ameba]
 
 volumes:
   - name: cache

@@ -7,6 +7,8 @@ authors:
 development_dependencies:
   clang:
     github: crystal-lang/clang.cr
+  ameba:
+    github: veelenga/ameba
 
 scripts:
   postinstall: make ext/webview.o

@@ -6,6 +6,7 @@ DEPENDENCY_OUTPUT := ext/webview.o
 C_FLAGS := -fPIC -shared
 CRYSTAL_FLAGS := --error-trace --release -Dpreview_mt
 SAMPLES := sample/render sample/simple
+CPP := $(shell which c++ || which clang++ || which g++)
 
 ifeq ($(OS),Windows_NT)
     C_FLAGS += -mwindows -L./dll/x64 -lwebview -lWebView2Loader
@@ -29,7 +30,7 @@ sample/render: $(DEPENDENCY_OUTPUT)
 
 $(DEPENDENCY_OUTPUT):
 	-mkdir ext
-	c++ $(DEPENDENCY) $(C_FLAGS) -o $(DEPENDENCY_OUTPUT)
+	$(CPP) $(DEPENDENCY) $(C_FLAGS) -o $(DEPENDENCY_OUTPUT)
 
 clean:
 	-rm $(DEPENDENCY_OUTPUT)
